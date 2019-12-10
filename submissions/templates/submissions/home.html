@@ -1,0 +1,539 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Quality Dashboard</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
+          rel="stylesheet"/>
+    <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet"/>
+
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
+          rel="stylesheet"/>
+    <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet"/>
+
+
+    <!-- PLUGINS CSS STYLE -->
+    <link href="{% static "sleek/plugins/nprogress/nprogress.css" %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- SLEEK CSS -->
+    <link id="sleek-css" rel="stylesheet" href="{% static "sleek/css/sleek.css" %}"/>
+
+
+    <!-- FAVICON -->
+    <link href="{% static "sleek/img/favicon.png" %}" rel="shortcut icon"/>
+
+
+    <link href="{% static "sleek/plugins/jvectormap/jquery-jvectormap-2.0.3.css" %}" rel="stylesheet"/>
+
+
+    <link href="{% static "sleek/plugins/daterangepicker/daterangepicker.css" %}" rel="stylesheet"/>
+
+
+    <link href="{% static "sleek/plugins/toastr/toastr.min.css" %}" rel="stylesheet"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.10/css/bootstrap-select.css">
+
+    <link rel="stylesheet" href="{% static "submissions/plugins/stick-header/jquery-stickytable.css" %}">
+    <!--
+      HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+    <script src="{% static "sleek/plugins/nprogress/nprogress.js" %}"></script>
+
+    <style>
+        #fixed-table {
+            overflow: scroll;
+            height: 600px;
+        }
+
+        .dropdown-toggle {
+            width: 80% !important;
+        }
+    </style>
+</head>
+
+
+<body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
+
+<script>
+    NProgress.configure({showSpinner: false});
+    NProgress.start();
+</script>
+
+<div class="mobile-sticky-body-overlay"></div>
+
+<div style="color: #009B91" id="toaster"></div>
+
+
+<div class="wrapper">
+    <!-- Github Link -->
+    <a href="#" class="github-link">
+        <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="75%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color: #009B91;stop-opacity:1"/>
+                    <stop offset="100%" style="stop-color: #009B91;stop-opacity:1"/>
+                </linearGradient>
+            </defs>
+            <path d="M 0,0 L115,115 L115,115 L142,142 L250,250 L250,0 Z" fill="url(#grad1)"></path>
+        </svg>
+        <i class="mdi mdi-chart-histogram"></i>
+    </a>
+
+    <!--
+  ====================================
+  ——— LEFT SIDEBAR WITH FOOTER
+  =====================================
+-->
+    <aside class="left-sidebar bg-sidebar">
+        <div id="sidebar" class="sidebar sidebar-with-footer">
+            <!-- Aplication Brand -->
+            <div style="background-color: #009B91" class="app-brand">
+                <a href="/">
+                    <svg
+                            class="brand-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            preserveAspectRatio="xMidYMid"
+                            width="30"
+                            height="33"
+                            viewBox="0 0 30 33"
+                    >
+                        <g fill="none" fill-rule="evenodd">
+                            <path
+                                    class="logo-fill-blue"
+                                    fill="#7DBCFF"
+                                    d="M0 4v25l8 4V0zM22 4v25l8 4V0z"
+                            />
+                            <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z"/>
+                        </g>
+                    </svg>
+                    <span class="brand-name">Quality Dashboard</span>
+                </a>
+            </div>
+            <!-- begin sidebar scrollbar -->
+            <div class="sidebar-scrollbar">
+
+                <!-- sidebar menu -->
+                <ul class="nav sidebar-inner" id="sidebar-menu">
+
+                    <li class="has-sub">
+                        <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                           data-target="#pages"
+                           aria-expanded="false" aria-controls="pages">
+                            <i class="mdi mdi-chart-pie"></i>
+                            <span class="nav-text">Quality Dashboard</span> <b class="caret"></b>
+                        </a>
+                        <ul class="collapse" id="pages"
+                            data-parent="#sidebar-menu">
+                            <div class="sub-menu">
+
+
+                                <li>
+                                    <a class="sidenav-item-link" href="user-profile.html">
+                                        <span class="nav-text">User Profile</span>
+
+                                    </a>
+                                </li>
+
+
+                                <li class="has-sub">
+                                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                       data-target="#authentication"
+                                       aria-expanded="false" aria-controls="authentication">
+                                        <span class="nav-text">Total Cost</span> <b class="caret"></b>
+                                    </a>
+                                    <ul class="collapse" id="authentication">
+                                        <div class="sub-menu">
+                                            <li>
+                                                <a href="sign-up.html">Sign Up</a>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </li>
+
+
+                                <li class="has-sub">
+                                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
+                                       data-target="#others"
+                                       aria-expanded="false" aria-controls="others">
+                                        <span class="nav-text">Others</span> <b class="caret"></b>
+                                    </a>
+                                    <ul class="collapse" id="others">
+                                        <div class="sub-menu">
+
+                                            <li>
+                                                <a href="invoice.html">invoice</a>
+                                            </li>
+
+                                            <li>
+                                                <a href="404.html">404 Page</a>
+                                            </li>
+
+                                        </div>
+                                    </ul>
+                                </li>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <hr class="separator"/>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-footer-content">
+                    <h6 class="text-uppercase">
+                        Cpu Uses <span class="float-right">40%</span>
+                    </h6>
+                    <div class="progress progress-xs">
+                        <div
+                                class="progress-bar active"
+                                style="width: 40%;"
+                                role="progressbar"
+                        ></div>
+                    </div>
+                    <h6 class="text-uppercase">
+                        Memory Uses <span class="float-right">65%</span>
+                    </h6>
+                    <div class="progress progress-xs">
+                        <div
+                                class="progress-bar progress-bar-warning"
+                                style="width: 65%;"
+                                role="progressbar"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="main-header " id="header">
+            <nav class="navbar navbar-static-top navbar-expand-lg">
+                <!-- Sidebar toggle button -->
+                <button id="sidebar-toggler" class="sidebar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
+                <!-- search form -->
+                <div class="search-form d-none d-lg-inline-block">
+                    <div class="input-group">
+                        <button type="button" name="search" id="search-button" class="btn btn-flat">
+                            <i class="mdi mdi-magnify"></i>
+                        </button>
+                        <input type="text" name="query" id="search-input" class="form-control"
+                               placeholder="'button', 'chart' etc."
+                               autofocus autocomplete="off"/>
+                    </div>
+                </div>
+
+                <div class="navbar-right ">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown notifications-menu">
+                            <button class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="mdi mdi-bell-outline"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-header">You have 5 notifications</li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-account-plus"></i> New user registered
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 10 AM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-account-remove"></i> User deleted
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 07 AM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-chart-areaspline"></i> Sales report is ready
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 12 PM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-account-supervisor"></i> New client
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 10 AM</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-server-network-off"></i> Server overloaded
+                                        <span class=" font-size-12 d-inline-block float-right"><i
+                                                class="mdi mdi-clock-outline"></i> 05 AM</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-footer">
+                                    <a class="text-center" href="#"> View All </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- User Account -->
+                        <li class="dropdown user-menu">
+                            <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <img src="{% static "submissions/img/marcin_lechner.png" %}"
+                                     class="user-image" alt="User Image"/>
+                                <span class="d-none d-lg-inline-block">Marcin Lachner</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <!-- User image -->
+                                <li class="dropdown-header">
+                                    <img src="{% static "submissions/img/marcin_lechner.png" %}"
+                                         class="img-circle" alt="User Image"/>
+                                    <div class="d-inline-block">
+                                        Marcin Lachner
+                                        <small class="pt-1">marcin@renhal.com</small>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <a href="user-profile.html">
+                                        <i class="mdi mdi-account"></i> My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="mdi mdi-email"></i> Message
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
+                                </li>
+
+                                <li class="dropdown-footer">
+                                    <a href="index.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+        </header>
+
+
+        {% block content %}
+            <div id="content-block" class="content-wrapper">
+                <div class="content">
+                    <div class="row" id="search-row">
+
+                    </div>
+                    {% block chart_content %}
+                        <div class="row">
+                            <div style="padding-top: 10px" id="fr-date-range" class="col-sm-4 col-lg-4">
+                                <div class="date-range">
+                                    <p>
+
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-lg-2">
+                                <div class="form-group text-center">
+                                    <label class="text-center" style="font-size: 14px; color: #8a909d;"
+                                           for="progress-select">Progess</label>
+                                    <select id="progress-select" data-actions-box="true" class="selectpicker"
+                                            data-live-search="true" multiple>
+
+                                        {% for progress in progress %}
+                                            <option value="{{ progress.id }}" selected>{{ progress.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-lg-2">
+                                <div class="form-group text-center">
+                                    <label class="text-center" style="font-size: 14px; color: #8a909d;"
+                                           for="classification-select">Classification</label>
+                                    <select id="classification-select" data-actions-box="true" class="selectpicker"
+                                            data-live-search="true" multiple>
+                                        {% for classification in classifications %}
+                                            <option value="{{ classification.id }}"
+                                                    selected>{{ classification.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-lg-2">
+                                <div class="form-group text-center">
+                                    <label class="text-center" style="font-size: 14px; color: #8a909d;"
+                                           for="liability-select">Liability</label>
+                                    <select id="liability-select" data-actions-box="true" class="selectpicker"
+                                            data-live-search="true" multiple>
+                                        <option value="{{ supplier.id }}" selected>{{ supplier.name }}</option>
+                                        <optgroup label="Buhler">
+                                            {% for liability in buhler %}
+                                                <option value="{{ liability.id }}"
+                                                        selected>{{ liability.name }}</option>
+                                            {% endfor %}
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-lg-2">
+                                <div class="form-group text-center">
+                                    <label class="text-center" style="font-size: 14px; color: #8a909d;"
+                                           for="supplier-select">Supplier</label>
+                                    <select id="supplier-select" data-actions-box="true" class="selectpicker"
+                                            data-live-search="true" multiple>
+                                        {% for supplier in suppliers %}
+                                            <option value="{{ supplier.id }}" selected>{{ supplier.name }} {{ supplier.count }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            {% for chart in charts %}
+                                {% if chart.chart_type == 'constant_value' %}
+                                    <div class="col-6">
+                                        <div class="card card-default">
+                                            <div class="card-header justify-content-center">
+                                                <h2 class="text-center">{{ chart.number }}. {{ chart.name }}</h2>
+                                            </div>
+                                            <div class="card-body text-center" style="height: 250px;">
+                                                <h1 style="font-size: 96px" id="{{ chart.slug }}"></h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% elif chart.chart_type == 'bar_chart' or chart.chart_type == 'product_line' or chart.chart_type == 'multiple_bar_chart' or chart.chart_type == 'dual_line_chart' or chart.chart_type == 'line_chart' %}
+
+                                    <div class="col-12">
+                                        <div class="card card-default">
+                                            <div class="card-header justify-content-center">
+                                                <h2 class="text-center">{{ chart.number }}. {{ chart.name }}</h2>
+                                            </div>
+                                            <div class="card-body" style="height: 450px;">
+                                                <canvas id="{{ chart.slug }}" class="chartjs"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="col-6">
+                                        <div class="card card-default">
+                                            <div class="card-header justify-content-center">
+                                                <h2 class="text-center">{{ chart.number }}. {{ chart.name }}</h2>
+                                            </div>
+                                            <div class="card-body" style="height: 450px;">
+                                                <canvas id="{{ chart.slug }}" class="chartjs"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+
+                        <div style="margin-bottom: 20px" class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div style="display: inline; padding-right: 5px;" class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="show-all-columns">
+                                    <label class="form-check-label" for="show-all-columns">Show All Columns</label>
+                                </div>
+                                <button id="excel-download-button">Download Current View <i
+                                        class="fa fa-download fa-20x"></i></button>
+                            </div>
+                            <div class="col-sm-12">
+                                <table class="table-bordered" style="white-space: nowrap; height: 600px; "
+                                       id="excel-table">
+
+                                </table>
+                            </div>
+                            <div class="col-12 offset-1">
+                                <ul id="excel-pagination" class="pagination">
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+
+        <footer class="footer mt-auto">
+            <div class="copyright bg-white">
+                <p>
+                    &copy; <span id="copy-year">2019</span> Copyright Quality Dashboard
+                </p>
+            </div>
+        </footer>
+
+    </div>
+</div>
+
+
+<script src="{% static "sleek/plugins/jquery/jquery.min.js" %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+<script src="{% static "sleek/plugins/bootstrap/js/bootstrap.min.js" %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.10/js/bootstrap-select.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="{% static "sleek/plugins/slimscrollbar/jquery.slimscroll.min.js" %}"></script>
+<script src="{% static "sleek/plugins/charts/Chart.min.js" %}"></script>
+<script src="{% static "sleek/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js" %}"></script>
+<script src="{% static "sleek/plugins/jvectormap/jquery-jvectormap-world-mill.js" %}"></script>
+<script src="{% static "sleek/plugins/toastr/toastr.min.js" %}"></script>
+<script src="{% static "sleek/plugins/daterangepicker/daterangepicker.js" %}"></script>
+<script src="{% static "sleek/js/sleek.bundle.js" %}"></script>
+<script src="{% static "submissions/plugins/stick-header/jquery-stickytable.min.js" %}"></script>
+<script src="{% static "submissions/js/custom-charts.js" %}"></script>
+<script src="{% static "submissions/js/type_watch.js" %}"></script>
+
+<script>
+    let $body = $('body');
+    let $searchRow = $('#search-row');
+
+    let getSearchResults = () => {
+        let keyword = $('#search-input').val();
+        $.ajax({
+            url: '/search_submissions?keyword=' + keyword,
+            success: function (data) {
+                $searchRow.html(data.html_content);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    };
+
+    let typeWatchOptions = {
+        callback: getSearchResults,
+        wait: 750
+    };
+
+    $('#search-input').typeWatch(typeWatchOptions);
+</script>
+
+</body>
+</html>

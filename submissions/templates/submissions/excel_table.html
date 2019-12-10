@@ -1,0 +1,20 @@
+<thead>
+<tr>
+    {% for title in titles %}
+        <th><span>&nbsp; {{ title }} &nbsp;</span></th>
+    {% endfor %}
+</tr>
+</thead>
+<tbody>
+{% for data in submissions_table_data %}
+    <tr>
+        {% for value in data %}
+           {% if 'http' in value %}
+                <td><a href="{{ value }}">&nbsp; {{ value }} &nbsp;</a></td>
+            {% else %}
+                <td>&nbsp; {{ value }} &nbsp;</td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+{% endfor %}
+</tbody>

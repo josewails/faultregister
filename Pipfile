@@ -1,0 +1,28 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+django = "*"
+django-extensions = "*"
+djangorestframework = "*"
+gunicorn = "*"
+django-heroku = "*"
+openpyxl = "*"
+whitenoise = "*"
+django-debug-toolbar = "*"
+django-pyodbc-azure = "*"
+gspread = "*"
+oauthclient = "*"
+oauth2client = "*"
+apscheduler = "*"
+django-background-tasks = "*"
+pydotplus = "*"
+pillow = "*"
+
+[requires]
+python_version = "3.7"

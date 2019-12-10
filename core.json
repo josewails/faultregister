@@ -1,0 +1,189 @@
+[
+{
+    "model": "core.chart",
+    "pk": 1,
+    "fields": {
+        "name": "Average days to close an issue",
+        "chart_type": "constant_value",
+        "slug": "average-days-to-close-an-issue",
+        "end_point": "/api/average_time_to_done",
+        "number": 1
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 2,
+    "fields": {
+        "name": "Average minutes wasted per issue",
+        "chart_type": "constant_value",
+        "slug": "average-minutes-wasted-per-issue",
+        "end_point": "/api/average_time_wasted",
+        "number": 2
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 3,
+    "fields": {
+        "name": "Number of Issues per Liability",
+        "chart_type": "pie_chart",
+        "slug": "number-of-issues-per-liability",
+        "end_point": "/api/fault_source_count",
+        "number": 5
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 4,
+    "fields": {
+        "name": "Number of Issues per Current Area",
+        "chart_type": "pie_chart",
+        "slug": "number-of-issues-per-current-area",
+        "end_point": "/api/current_area_issues",
+        "number": 6
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 5,
+    "fields": {
+        "name": "Number of Issues per Defect Origin Area",
+        "chart_type": "bar_chart",
+        "slug": "number-of-issues-per-defect-origin-area",
+        "end_point": "/api/defect_origin_area_count",
+        "number": 7
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 6,
+    "fields": {
+        "name": "CONQ(Cost of not Quality) per defect origin area",
+        "chart_type": "bar_chart",
+        "slug": "conqcost-of-not-quality-per-defect-origin-area",
+        "end_point": "/api/defect_origin_area_ncr_cost",
+        "number": 8
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 7,
+    "fields": {
+        "name": "CONQ(Cost of not Quality) per supplier",
+        "chart_type": "bar_chart",
+        "slug": "conqcost-of-not-quality-per-supplier",
+        "end_point": "/api/supplier_ncr_cost",
+        "number": 9
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 8,
+    "fields": {
+        "name": "Defect Category Per Supplier",
+        "chart_type": "radar_chart",
+        "slug": "defect-category-per-supplier",
+        "end_point": "/api/defect_categories_per_supplier",
+        "number": 10
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 10,
+    "fields": {
+        "name": "Total CONQ Cost",
+        "chart_type": "constant_value",
+        "slug": "total-conq-cost",
+        "end_point": "/api/total_conq_cost",
+        "number": 3
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 11,
+    "fields": {
+        "name": "Total Part Cost",
+        "chart_type": "constant_value",
+        "slug": "total-part-cost",
+        "end_point": "/api/total_part_cost",
+        "number": 4
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 12,
+    "fields": {
+        "name": "Total CONQ Cost Per Liability",
+        "chart_type": "donut_chart",
+        "slug": "total-conq-cost-per-liability",
+        "end_point": "/api/fault_source_ncr_cost",
+        "number": 11
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 13,
+    "fields": {
+        "name": "Total Cost Per Current Status",
+        "chart_type": "polar_chart",
+        "slug": "total-cost-per-current-status",
+        "end_point": "/api/submission_status_ncr_cost",
+        "number": 12
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 14,
+    "fields": {
+        "name": "Liability Count Per Month",
+        "chart_type": "multiple_statistics",
+        "slug": "liability-count-per-month",
+        "end_point": "/api/liability_count_per_month",
+        "number": 13
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 15,
+    "fields": {
+        "name": "Liability Average Closing Time Per Month",
+        "chart_type": "product_line",
+        "slug": "liability-average-closing-time-per-month",
+        "end_point": "/api/liability_average_closing_time_per_month",
+        "number": 14
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 16,
+    "fields": {
+        "name": "CONQ per classification",
+        "chart_type": "multiple_bar_chart",
+        "slug": "conq-per-classification",
+        "end_point": "/api/conq_per_classification",
+        "number": 15
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 17,
+    "fields": {
+        "name": "CONQ Per Liability",
+        "chart_type": "dual_line_chart",
+        "slug": "conq-per-liability",
+        "end_point": "/api/conq_per_liability",
+        "number": 16
+    }
+},
+{
+    "model": "core.chart",
+    "pk": 18,
+    "fields": {
+        "name": "CONQ Per Month",
+        "chart_type": "line_chart",
+        "slug": "conq-per-month",
+        "end_point": "/api/conq_per_month",
+        "number": 17
+    }
+}
+]
