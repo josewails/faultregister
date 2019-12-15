@@ -9,7 +9,6 @@ from django.db.models import Count
 from .models import Supplier, FaultSource, SubmissionProgress, Submission, Classification
 from core.mixins import GeneralMixins
 from core.models import Chart
-from .tasks import populate_db_background_task
 
 from io import BytesIO
 from openpyxl import Workbook
@@ -267,13 +266,6 @@ class ExcelTable(GeneralMixins, View):
             'excel_table': render_to_string('submissions/excel_table.html', context_one),
             'pagination': render_to_string('submissions/pagination.html', context_two)
         })
-
-
-class PopulateDB(View):
-
-    def get(self, request):
-        populate_db_background_task()
-        return HttpResponse('Your job has been scheduled and will run soon')
 
 
 class SearchSubmissions(View):
