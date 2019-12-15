@@ -4,7 +4,7 @@ $(document).ready(function () {
         let $excelTable = $('#excel-table');
         let pageNumber = 1;
         let $body = $('body');
-        let start = moment().startOf('month');
+        let start = moment().startOf('year');
         let end = moment();
         let showAllColumns = 0;
         let progressFilter = [];
