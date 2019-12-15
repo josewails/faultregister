@@ -3,7 +3,6 @@ import os
 from .settings import *
 import django_heroku
 
-
 #
 # DATABASES = {
 #     'default': {
@@ -22,3 +21,4 @@ import django_heroku
 #
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 DEBUG = True
+django_heroku.settings(locals())
