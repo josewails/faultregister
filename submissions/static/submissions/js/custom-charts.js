@@ -168,14 +168,11 @@ $(document).ready(function () {
                 classificationFilter: classificationFilter
             };
 
-            console.log(filterData);
-
             $.ajax({
                 url: '/api/update_submission_ids/' + startDate + '/' + endDate,
                 data: filterData,
                 method: 'GET'
             }).done(response => {
-                console.log(response);
                 drawCharts();
             }).fail(error => {
                 console.log(error);
@@ -386,7 +383,6 @@ $(document).ready(function () {
 
         function drawMultipleStats(canvasId, labels, data, stepSize) {
 
-            console.log(data);
             var msdChart = new Chart(canvasId, {
                 type: "line",
                 data: {
@@ -787,6 +783,7 @@ $(document).ready(function () {
 
         function drawDualLineChart(canvasId, labels, data) {
 
+            console.log(labels);
             let chart = new Chart(canvasId, {
                 type: "line",
                 data: {
@@ -815,21 +812,17 @@ $(document).ready(function () {
                     },
 
                     legend: {
-                        display: false
+                        display: true
                     },
                     scales: {
                         xAxes: [
                             {
                                 gridLines: {
-                                    drawBorder: false,
-                                    display: false
+                                    display: false,
                                 },
                                 ticks: {
-                                    display: false, // hide main x-axis line
-                                    beginAtZero: true
+                                    fontColor: "#8a909d", // this here
                                 },
-                                barPercentage: 1.8,
-                                categoryPercentage: 0.2
                             }
                         ],
                         yAxes: [

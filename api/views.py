@@ -115,7 +115,10 @@ class SubmissionStatusNCRCost(GeneralMixins, views.APIView):
         ).values('name', 'total_ncr_cost')
 
         data = [round(status['total_ncr_cost'], 2) for status in statuses]
-        max_value = max(data)
+        max_value = 0
+
+        if data:
+            max_value = max(data)
 
         return Response({
             'labels': [status['name'] for status in statuses],
@@ -158,7 +161,7 @@ class AverageTimeWasted(GeneralMixins, views.APIView):
         )['average']
 
         return Response(
-            dict(metric=round(average_time_wasted, 2) if average_time_wasted else None)
+            dict(metric=round(average_time_wasted, 2) if average_time_wasted else 0)
         )
 
 
@@ -174,7 +177,7 @@ class AverageTimetoDone(GeneralMixins, views.APIView):
         )['average']
 
         return Response(
-            dict(metric=round(average_time_to_done, 2) if average_time_to_done else None)
+            dict(metric=round(average_time_to_done, 2) if average_time_to_done else 0)
         )
 
 
@@ -240,7 +243,7 @@ class TotalCONQCost(GeneralMixins, views.APIView):
         ).aggregate(total_cost=Sum('total_ncr_cost'))['total_cost']
 
         return Response(
-            dict(metric=round(total_cost, 2) if total_cost else None)
+            dict(metric=round(total_cost, 2) if total_cost else 0)
         )
 
 
@@ -261,7 +264,7 @@ class TotalPartCost(GeneralMixins, views.APIView):
         ).aggregate(total__part_cost=Sum('total_part_cost'))['total__part_cost']
 
         return Response(
-            dict(metric=round(total__part_cost, 2) if total__part_cost else None)
+            dict(metric=round(total__part_cost, 2) if total__part_cost else 0)
         )
 
 
@@ -543,12 +546,18 @@ class CONQPerClassification(GeneralMixins, views.APIView):
         months = sorted(months)
 
         final_data = list()
-        max_height = 0
+        max_height = 1
         for i in range(len(classification_dicts)):
             classification_dict = classification_dicts[i]
 
             data = [classification_dict[month] if month in classification_dict else 0 for month in months]
-            max_height = max(max_height, max(data) * 1.2)
+
+            max_value = 0
+
+            if data:
+                max_value = max(data)
+
+            max_height = max(max_height, max_value * 1.2)
             final_data.append(
                 dict(
                     label=classification_names[i],
