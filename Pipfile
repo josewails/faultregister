@@ -19,7 +19,6 @@ gspread = "*"
 oauthclient = "*"
 oauth2client = "*"
 apscheduler = "*"
-django-background-tasks = "*"
 pydotplus = "*"
 pillow = "*"
 

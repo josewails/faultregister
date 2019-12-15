@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'debug_toolbar',
-    'background_task',
 
     'submissions',
     'api',
