@@ -1,1 +1,1 @@
-web: gunicorn faultregister.wsgi
+web: gunicorn faultregister.wsgi --limit-request-line 8192
